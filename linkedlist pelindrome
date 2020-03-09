@@ -1,0 +1,63 @@
+import java.util.Scanner;
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+        Scanner obj=new Scanner(System.in);
+        LinkedList<Character> l1=new LinkedList<Character>();
+        
+        int count=0;
+        l1.addLast('a');
+        l1.addLast('b');
+        l1.addLast('a');
+        l1.addLast('b');
+        l1.addLast('a');
+        l1.addLast('b');
+        l1.addLast('c');
+       
+        Iterator it1=l1.iterator();
+        while(it1.hasNext())
+        {
+           count++; 
+           System.out.println(it1.next()+" ");
+           
+        }
+       
+        Stack s1=new Stack();
+        Iterator it2=s1.iterator();
+       
+        for(int i=0;i<count;i++)
+        {
+            
+            s1.push(l1.get(i));
+            
+        } 
+        int cf=0;
+       while(!s1.empty())
+       {
+           for(int i=0;i<count;i++)
+           {
+               if(l1.get(i)==s1.peek())
+               {
+                   s1.pop();
+               }
+              else
+              {
+                  s1.pop();
+                  cf++;
+              }
+           }
+       }
+     
+       if(cf>0)
+       {
+           System.out.println("not pelindrome");
+       }
+       else
+       {
+           System.out.println("pelindrome");
+       }
+       
+       
+     
+    }
+}
